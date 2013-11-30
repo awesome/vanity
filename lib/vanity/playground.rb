@@ -26,7 +26,7 @@ module Vanity
       options = Hash === args.last ? args.pop : {}
       # In the case of Rails, use the Rails logger and collect only for
       # production environment by default.
-      defaults = options[:rails] ? DEFAULTS.merge(:collecting => ::Rails.env.production?, :logger => ::Rails.logger) : DEFAULTS
+      defaults = options[:rails] ? DEFAULTS.merge(:collecting => true, :logger => ::Rails.logger) : DEFAULTS
       if config_file_exists?
         env = ENV["RACK_ENV"] || ENV["RAILS_ENV"] || "development"
         config = load_config_file[env]
